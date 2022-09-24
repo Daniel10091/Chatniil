@@ -1,0 +1,36 @@
+{
+  "document": {
+    "txt": "text/plain",
+    "pdf": "application/pdf",
+    "doc": "application/doc",
+    "docm": "application/docm",
+    "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "pptx": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    "xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "rar": "application/octet-stream",
+    "zip": "application/x-zip-compressed",
+    "html": "text/html",
+    "css": "text/css",
+    "js": "text/javascript",
+    "php": "application/octet-stream",
+    "jar": "application/java-archive",
+    "eps": "application/postscript",
+    "ini": "application/octet-stream",
+    "mdb": "application/msaccess",
+    "eml": "message/rfc822",
+    "mpp": "application/vnd.ms-project",
+    "nfo": "application/octet-stream",
+    "obj": "application/octet-stream",
+    "otf": "application/octet-stream",
+    "rtf": "application/msword",
+    "ttf": "application/octet-stream",
+    "vcf": "text/x-vcard"
+  },
+  "picture": {
+    "webp": "image/webp",
+    "jpeg": "image/jpeg",
+    "jpg": "image/jpg",
+    "png": "image/png",
+    "gif": "image/gif"
+  }
+}

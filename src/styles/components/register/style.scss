@@ -1,0 +1,319 @@
+@import url('../../../dist/global.css');
+@import url('../../../fonts/style.css');
+@import url('../../../variables/style.css');
+@import url('../../../components/loader/dist/style.css');
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--Poppins);
+  background-color: var(--RaisinBlack02);
+  opacity: 0;
+  pointer-events: none;
+  will-change: contents;
+  transition: all 0s ease;
+  &.is-show {opacity: 1; pointer-events: auto;}
+}
+
+main.app__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.app__register-frame {
+  width: 400px;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 30px;
+  padding-inline: 20px;
+  padding-block: 20px 40px;
+  background-color: var(--RaisinBlack01);
+  box-shadow: 0 2px 8px var(--DarkOpacity02);
+  border-radius: 10px;
+}
+
+.register__title {
+  position: relative;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  h2 {font-size: 32px; letter-spacing: 1px; color: var(--White);}
+}
+
+.register__form {
+  width: 100%;
+  height: auto;
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    gap: 30px;
+    .form-group {
+      position: relative;
+      height: 42px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 14px;
+      padding-inline: 14px 0;
+      background-color: var(--Gunmetal);
+      border-radius: 50px;
+      ion-icon {font-size: 24px; color: var(--RomanSilver);}
+      input.form-control {
+        width: 100%;
+        height: 100%;
+        padding-inline: 0 14px;
+        font-family: var(--Poppins);
+        font-size: 16px;
+        color: var(--White);
+        background-color: transparent;
+        border-radius: 0 50px 50px 0;
+        border: 0;
+        &::placeholder {color: var(--RomanSilver);}
+      }
+      &:not(.file) {
+        label {
+          position: absolute;
+          left: 48px;
+          padding-inline: 4px;
+          font-family: var(--Poppins);
+          font-size: 16px;
+          color: var(--RomanSilver);
+          pointer-events: none;
+          will-change: contents;
+          transition: all 0.2s ease;
+        }
+        input:focus ~ label, input:valid ~ label {
+          transform: translate(-20px, -32px);
+          font-size: 15px;
+          color: var(--White);
+        }
+      }
+      &.password {
+        grid-template-columns: auto 1fr auto;
+        input {padding-inline: 0;}
+        span.show-password {
+          width: 40px;
+          height: 40px;
+          line-height: 0;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          background-color: transparent;
+          border-radius: 0 50px 50px 0;
+          border: 0;
+          cursor: pointer;
+          ion-icon {font-size: 24px; color: var(--RomanSilver);}
+        }
+      }
+      &.file {
+        input {display: none;}
+        label {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          line-height: 0;
+          font-family: var(--Poppins);
+          font-size: 16px;
+          color: var(--RomanSilver);
+          border-radius: 0 50px 50px 0;
+          cursor: pointer;
+        }
+        .load_ckeck {
+          position: absolute;
+          right: 16px;
+          width: 24px;
+          height: 24px;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          span {
+            position: relative;
+            display: block;
+            width: 4px;
+            height: 22px;
+            transform: translateX(3px) rotate(40deg);
+            &::before, &::after {
+              content: '';
+              position: absolute;
+              background-color: var(--Malachite);
+              border-radius: 50px;
+              will-change: contents;
+            }
+            &::before {
+              bottom: 0;
+              width: 4px;
+              height: 0;
+            }
+            &::after {
+              left: 0;
+              bottom: 0;
+              transform: translateX(-8px);
+              width: 0px;
+              height: 4px;
+            }
+          }
+          &.file-loaded {
+            span {
+              &::before {height: 100%; transition: all 0.15s linear 0.15s;}
+              &::after {width: 12px; transition: all 0.15s linear;}
+            }
+          }
+        }
+        .load_progress_bar {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-inline: 12px;
+          background-color: var(--Gunmetal);
+          border-radius: inherit;
+          opacity: 0;
+          pointer-events: none;
+          will-change: contents;
+          transition: all 0s ease;
+          &.is-visible {opacity: 1;}
+          .icon {
+            width: 100%;
+            height: 24px;
+            display: flex;
+            background-color: var(--Independence);
+            border-radius: inherit;
+            overflow: hidden;
+            span {
+              display: block;
+              width: 0;
+              height: 100%;
+              background-color: var(--Malachite);
+              border-radius: inherit;
+            }
+          }
+        }
+      }
+    }
+    button.btn-primary {
+      width: 100%;
+      height: 42px;
+      line-height: 0;
+      font-family: var(--Poppins);
+      font-size: 16px;
+      color: var(--PrimaryColor03);
+      background-color: var(--PrimaryColor01);
+      border-radius: 50px;
+      border: 0;
+      cursor: pointer;
+      will-change: contents;
+      transition: all 0.2s ease-out;
+      &:disabled {
+        background-color: var(--Independence);
+        cursor: no-drop;
+      }
+    }
+  }
+}
+
+.register__links {
+  display: flex;
+  justify-content: flex-end;
+  a {font-size: 14px; color: var(--RomanSilver);}
+}
+
+.register__message {
+  height: 40px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 4px;
+  margin-top: 30px;
+  text-align: center;
+  border-radius: 6px;
+  will-change: contents;
+  transition: all 0.2s ease;
+  p {font-size: 14px; color: var(--White);}
+  &.is-visible {display: flex;}
+  &[data-message="error"] {background-color: var(--FieryRose);}
+  &[data-message="success"] {background-color: var(--Malachite);}
+}
+
+.app__links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding-block: 20px;
+  border-top: 2px solid var(--Independence);
+  p {font-size: 14px; color: var(--RomanSilver);}
+  a {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--White);
+  }
+}
+
+.register_load {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--RaisinBlack02);
+  .load_icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    clip: rect(0, 40px, 40px, 20px);
+    &::after {
+      content: '';
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      clip: inherit;
+      border-radius: 50%;
+      border: 6px solid var(--PrimaryColor01);
+    }
+  }
+}
+
+@mixin animate ($animation, $duration, $method, $times) {
+  animation: $animation $duration $method $times;
+}
+
+@mixin keyframes ($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+.register_load .load_icon {
+  @include keyframes(loadIcon01) {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(220deg);}
+  }
+  @include animate(loadIcon01, 1.5s, linear, infinite);
+}
+
+.register_load .load_icon::after {
+  @include keyframes(loadIcon02) {
+    0% {transform: rotate(-140deg);}
+    100% {transform: rotate(140deg);}
+  }
+  @include animate(loadIcon02, 1.5s, ease-in-out, infinite);
+}

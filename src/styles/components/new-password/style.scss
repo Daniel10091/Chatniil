@@ -1,0 +1,226 @@
+@import url('../../../dist/global.css');
+@import url('../../../fonts/style.css');
+@import url('../../../variables/style.css');
+@import url('../../../components/loader/dist/style.css');
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--Poppins);
+  background-color: var(--RaisinBlack02);
+  opacity: 0;
+  pointer-events: none;
+  will-change: contents;
+  transition: all 0s ease;
+  &.is-show {opacity: 1; pointer-events: auto;}
+}
+
+main.app__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.app__recover-frame {
+  width: 400px;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 30px;
+  padding-inline: 20px;
+  padding-block: 20px 40px;
+  background-color: var(--RaisinBlack01);
+  box-shadow: 0 2px 8px var(--DarkOpacity02);
+  border-radius: 10px;
+}
+
+.recover__title {
+  position: relative;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  h2 {font-size: 32px; letter-spacing: 1px; color: var(--White);}
+}
+
+.recover__form {
+  width: 100%;
+  height: auto;
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 30px;
+    .form-group {
+      position: relative;
+      height: 42px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding-inline: 14px 0;
+      background-color: var(--Gunmetal);
+      border-radius: 50px;
+      ion-icon {font-size: 24px; color: var(--RomanSilver);}
+      input.form-control {
+        width: 100%;
+        height: 100%;
+        padding-inline: 0;
+        font-family: var(--Poppins);
+        font-size: 16px;
+        color: var(--White);
+        background-color: transparent;
+        border-radius: 0 50px 50px 0;
+        border: 0;
+        &::placeholder {color: var(--RomanSilver);}
+      }
+      span.show-password {
+        width: 40px;
+        height: 40px;
+        line-height: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: transparent;
+        border-radius: 0 50px 50px 0;
+        border: 0;
+        cursor: pointer;
+        ion-icon {font-size: 24px; color: var(--RomanSilver);}
+      }
+      label {
+        position: absolute;
+        left: 48px;
+        padding-inline: 4px;
+        font-family: var(--Poppins);
+        font-size: 16px;
+        color: var(--RomanSilver);
+        pointer-events: none;
+        will-change: contents;
+        transition: all 0.2s ease;
+      }
+      input:focus ~ label, input:valid ~ label {
+        transform: translate(-20px, -32px);
+        font-size: 15px;
+        color: var(--White);
+      }
+    }
+    button.btn-primary {
+      width: 100%;
+      height: 42px;
+      line-height: 0;
+      font-family: var(--Poppins);
+      font-size: 16px;
+      color: var(--PrimaryColor03);
+      background-color: var(--PrimaryColor01);
+      border-radius: 50px;
+      border: 0;
+      cursor: pointer;
+      will-change: contents;
+      transition: all 0.2s ease-out;
+      &:disabled {
+        background-color: var(--Independence);
+        cursor: no-drop;
+      }
+    }
+  }
+}
+
+.recover__links {
+  display: flex;
+  justify-content: flex-end;
+  a {font-size: 14px; color: var(--RomanSilver);}
+}
+
+.recover__message {
+  height: 40px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 4px;
+  margin-top: 30px;
+  text-align: center;
+  border-radius: 6px;
+  will-change: contents;
+  transition: all 0.2s ease;
+  p {font-size: 14px; color: var(--White);}
+  &.is-visible {display: flex;}
+  &[data-message="error"] {background-color: var(--FieryRose);}
+  &[data-message="success"] {background-color: var(--Malachite);}
+}
+
+.app__links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding-block: 20px;
+  border-top: 2px solid var(--Independence);
+  p {font-size: 14px; color: var(--RomanSilver);}
+  a {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--White);
+  }
+}
+
+.recover_load {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--RaisinBlack02);
+  .load_icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    clip: rect(0, 40px, 40px, 20px);
+    &::after {
+      content: '';
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      clip: inherit;
+      border-radius: 50%;
+      border: 6px solid var(--PrimaryColor01);
+    }
+  }
+}
+
+@mixin animate ($animation, $duration, $method, $times) {
+  animation: $animation $duration $method $times;
+}
+
+@mixin keyframes ($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+.recover_load .load_icon {
+  @include keyframes(loadIcon01) {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(220deg);}
+  }
+  @include animate(loadIcon01, 1.5s, linear, infinite);
+}
+
+.recover_load .load_icon::after {
+  @include keyframes(loadIcon02) {
+    0% {transform: rotate(-140deg);}
+    100% {transform: rotate(140deg);}
+  }
+  @include animate(loadIcon02, 1.5s, ease-in-out, infinite);
+}

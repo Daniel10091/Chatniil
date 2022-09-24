@@ -1,0 +1,374 @@
+@import url("../../../dist/global.css");
+@import url("../../../fonts/style.css");
+@import url("../../../variables/style.css");
+@import url("../../../components/loader/dist/style.css");
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--Poppins);
+  background-color: var(--RaisinBlack02);
+  opacity: 0;
+  pointer-events: none;
+  will-change: contents;
+  transition: all 0s ease;
+}
+body.is-show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+main.app__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.app__register-frame {
+  width: 400px;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 30px;
+  padding-inline: 20px;
+  padding-block: 20px 40px;
+  background-color: var(--RaisinBlack01);
+  box-shadow: 0 2px 8px var(--DarkOpacity02);
+  border-radius: 10px;
+}
+
+.register__title {
+  position: relative;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.register__title h2 {
+  font-size: 32px;
+  letter-spacing: 1px;
+  color: var(--White);
+}
+
+.register__form {
+  width: 100%;
+  height: auto;
+}
+.register__form form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto auto;
+  gap: 30px;
+}
+.register__form form .form-group {
+  position: relative;
+  height: 42px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 14px;
+  padding-inline: 14px 0;
+  background-color: var(--Gunmetal);
+  border-radius: 50px;
+}
+.register__form form .form-group ion-icon {
+  font-size: 24px;
+  color: var(--RomanSilver);
+}
+.register__form form .form-group input.form-control {
+  width: 100%;
+  height: 100%;
+  padding-inline: 0 14px;
+  font-family: var(--Poppins);
+  font-size: 16px;
+  color: var(--White);
+  background-color: transparent;
+  border-radius: 0 50px 50px 0;
+  border: 0;
+}
+.register__form form .form-group input.form-control::-moz-placeholder {
+  color: var(--RomanSilver);
+}
+.register__form form .form-group input.form-control:-ms-input-placeholder {
+  color: var(--RomanSilver);
+}
+.register__form form .form-group input.form-control::placeholder {
+  color: var(--RomanSilver);
+}
+.register__form form .form-group:not(.file) label {
+  position: absolute;
+  left: 48px;
+  padding-inline: 4px;
+  font-family: var(--Poppins);
+  font-size: 16px;
+  color: var(--RomanSilver);
+  pointer-events: none;
+  will-change: contents;
+  transition: all 0.2s ease;
+}
+.register__form form .form-group:not(.file) input:focus ~ label, .register__form form .form-group:not(.file) input:valid ~ label {
+  transform: translate(-20px, -32px);
+  font-size: 15px;
+  color: var(--White);
+}
+.register__form form .form-group.password {
+  grid-template-columns: auto 1fr auto;
+}
+.register__form form .form-group.password input {
+  padding-inline: 0;
+}
+.register__form form .form-group.password span.show-password {
+  width: 40px;
+  height: 40px;
+  line-height: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 0 50px 50px 0;
+  border: 0;
+  cursor: pointer;
+}
+.register__form form .form-group.password span.show-password ion-icon {
+  font-size: 24px;
+  color: var(--RomanSilver);
+}
+.register__form form .form-group.file input {
+  display: none;
+}
+.register__form form .form-group.file label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  font-family: var(--Poppins);
+  font-size: 16px;
+  color: var(--RomanSilver);
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+}
+.register__form form .form-group.file .load_ckeck {
+  position: absolute;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.register__form form .form-group.file .load_ckeck span {
+  position: relative;
+  display: block;
+  width: 4px;
+  height: 22px;
+  transform: translateX(3px) rotate(40deg);
+}
+.register__form form .form-group.file .load_ckeck span::before, .register__form form .form-group.file .load_ckeck span::after {
+  content: "";
+  position: absolute;
+  background-color: var(--Malachite);
+  border-radius: 50px;
+  will-change: contents;
+}
+.register__form form .form-group.file .load_ckeck span::before {
+  bottom: 0;
+  width: 4px;
+  height: 0;
+}
+.register__form form .form-group.file .load_ckeck span::after {
+  left: 0;
+  bottom: 0;
+  transform: translateX(-8px);
+  width: 0px;
+  height: 4px;
+}
+.register__form form .form-group.file .load_ckeck.file-loaded span::before {
+  height: 100%;
+  transition: all 0.15s linear 0.15s;
+}
+.register__form form .form-group.file .load_ckeck.file-loaded span::after {
+  width: 12px;
+  transition: all 0.15s linear;
+}
+.register__form form .form-group.file .load_progress_bar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 12px;
+  background-color: var(--Gunmetal);
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  will-change: contents;
+  transition: all 0s ease;
+}
+.register__form form .form-group.file .load_progress_bar.is-visible {
+  opacity: 1;
+}
+.register__form form .form-group.file .load_progress_bar .icon {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  background-color: var(--Independence);
+  border-radius: inherit;
+  overflow: hidden;
+}
+.register__form form .form-group.file .load_progress_bar .icon span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background-color: var(--Malachite);
+  border-radius: inherit;
+}
+.register__form form button.btn-primary {
+  width: 100%;
+  height: 42px;
+  line-height: 0;
+  font-family: var(--Poppins);
+  font-size: 16px;
+  color: var(--PrimaryColor03);
+  background-color: var(--PrimaryColor01);
+  border-radius: 50px;
+  border: 0;
+  cursor: pointer;
+  will-change: contents;
+  transition: all 0.2s ease-out;
+}
+.register__form form button.btn-primary:disabled {
+  background-color: var(--Independence);
+  cursor: no-drop;
+}
+
+.register__links {
+  display: flex;
+  justify-content: flex-end;
+}
+.register__links a {
+  font-size: 14px;
+  color: var(--RomanSilver);
+}
+
+.register__message {
+  height: 40px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 4px;
+  margin-top: 30px;
+  text-align: center;
+  border-radius: 6px;
+  will-change: contents;
+  transition: all 0.2s ease;
+}
+.register__message p {
+  font-size: 14px;
+  color: var(--White);
+}
+.register__message.is-visible {
+  display: flex;
+}
+.register__message[data-message=error] {
+  background-color: var(--FieryRose);
+}
+.register__message[data-message=success] {
+  background-color: var(--Malachite);
+}
+
+.app__links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding-block: 20px;
+  border-top: 2px solid var(--Independence);
+}
+.app__links p {
+  font-size: 14px;
+  color: var(--RomanSilver);
+}
+.app__links a {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--White);
+}
+
+.register_load {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--RaisinBlack02);
+}
+.register_load .load_icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  clip: rect(0, 40px, 40px, 20px);
+}
+.register_load .load_icon::after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  clip: inherit;
+  border-radius: 50%;
+  border: 6px solid var(--PrimaryColor01);
+}
+
+.register_load .load_icon {
+  -webkit-animation: loadIcon01 1.5s linear infinite;
+          animation: loadIcon01 1.5s linear infinite;
+}
+@-webkit-keyframes loadIcon01 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(220deg);
+  }
+}
+@keyframes loadIcon01 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(220deg);
+  }
+}
+
+.register_load .load_icon::after {
+  -webkit-animation: loadIcon02 1.5s ease-in-out infinite;
+          animation: loadIcon02 1.5s ease-in-out infinite;
+}
+@-webkit-keyframes loadIcon02 {
+  0% {
+    transform: rotate(-140deg);
+  }
+  100% {
+    transform: rotate(140deg);
+  }
+}
+@keyframes loadIcon02 {
+  0% {
+    transform: rotate(-140deg);
+  }
+  100% {
+    transform: rotate(140deg);
+  }
+}/*# sourceMappingURL=style.css.map */

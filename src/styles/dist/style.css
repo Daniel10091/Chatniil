@@ -1,0 +1,100 @@
+@import url("./dist/global.css");
+@import url("./fonts/style.css");
+@import url("./variables/style.css");
+@import url("./components/users/dist/style.css");
+@import url("./components/chat-box/dist/style.css");
+@import url("./components/loader/dist/style.css");
+body {
+  max-width: 100vw;
+  max-height: 100vh;
+  font-family: var(--NotoSans);
+  background-color: var(--RaisinBlack02);
+  will-change: contents;
+  transition: all 0.2s ease;
+}
+
+main.app__main {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  overflow: hidden;
+}
+
+.app_alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transform: translateY(0);
+  z-index: 1000000;
+  opacity: 0;
+  pointer-events: none;
+  will-change: contents;
+  transition: all 0.3s ease;
+}
+.app_alert.is-show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(20px);
+}
+.app_alert .alert_box {
+  width: 420px;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 40px;
+  padding-inline: 20px;
+  padding-block: 20px;
+  background-color: var(--RaisinBlack01);
+  box-shadow: 0 0 10px var(--DarkOpacity00), 0 10px 10px -8px var(--DarkOpacity01);
+  border-radius: 10px;
+}
+.app_alert .alert_box .alert-message {
+  text-align: start;
+}
+.app_alert .alert_box .alert-message p {
+  font-size: 15px;
+  color: var(--RomanSilver);
+}
+.app_alert .alert_box .alert-options menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.app_alert .alert_box .alert-options menu li button {
+  width: 90px;
+  height: 34px;
+  line-height: 0;
+  font-size: 15px;
+  background-color: transparent;
+  border-radius: 6px;
+  border: 0;
+  outline: 0 solid transparent;
+  cursor: pointer;
+  will-change: contents;
+}
+.app_alert .alert_box .alert-options menu li button:focus {
+  outline: 2px solid var(--Independence);
+  transition: all 0.1s ease;
+}
+.app_alert .alert_box .alert-options menu li button.alert__confirm {
+  color: var(--White);
+  background-color: var(--PrimaryColor01);
+}
+.app_alert .alert_box .alert-options menu li button.alert__cancel {
+  display: none;
+  color: var(--RomanSilver);
+  background-color: var(--Gunmetal);
+}
+.app_alert[data-alert=confirm] .alert_box .alert-options menu {
+  gap: 14px;
+}
+.app_alert[data-alert=confirm] .alert_box .alert-options menu li button.alert__cancel {
+  display: block;
+}

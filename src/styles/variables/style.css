@@ -1,0 +1,191 @@
+:root {
+  /* =========== Background =========== */
+
+  --RaisinBlack01: #171a25;
+  --RaisinBlack02: #202430;
+  --Gunmetal: #282F3F;
+  --Independence: #3A3F53;
+  --MediumSlateBlue: #6A65FF;
+  
+  --RaisinBlack02Opacity: #20243000;
+  
+  /* =========== Text =========== */
+  
+  --White: #FFFFFF;
+  --Black: #000000;
+  --SpaceCadet: #2D3041;
+  --RomanSilver: #7F879B;
+  --Independence_Text: #4D5061;
+
+  /* =========== Status =========== */
+  
+  --Malachite: #0ECF5E;
+  --FieryRose: #FC5867;
+  --Offline: #3A3F53; /* Independence */
+  
+  /* =========== Primary =========== */
+
+  --PrimaryColor01: #6A65FF; /* MediumSlateBlue */
+  --PrimaryColor02: #3A3F53; /* Independence */
+  --PrimaryColor03: #FFFFFF; /* White */
+
+  /* =========== Default =========== */
+
+  --LightOpacity00: hwb(0 100% 0% / 0.05);
+  --LightOpacity01: hwb(0 100% 0% / 0.1);
+  --LightOpacity02: hwb(0 100% 0% / 0.2);
+  --LightOpacity03: hwb(0 100% 0% / 0.3);
+  --LightOpacity04: hwb(0 100% 0% / 0.4);
+  --LightOpacity05: hwb(0 100% 0% / 0.5);
+  --LightOpacity06: hwb(0 100% 0% / 0.6);
+  --LightOpacity07: hwb(0 100% 0% / 0.7);
+  --LightOpacity08: hwb(0 100% 0% / 0.8);
+  --LightOpacity09: hwb(0 100% 0% / 0.9);
+
+  --DarkOpacity00: hwb(0 0% 100% / 0.05);
+  --DarkOpacity01: hwb(0 0% 100% / 0.1);
+  --DarkOpacity02: hwb(0 0% 100% / 0.2);
+  --DarkOpacity03: hwb(0 0% 100% / 0.3);
+  --DarkOpacity04: hwb(0 0% 100% / 0.4);
+  --DarkOpacity05: hwb(0 0% 100% / 0.5);
+  --DarkOpacity06: hwb(0 0% 100% / 0.6);
+  --DarkOpacity07: hwb(0 0% 100% / 0.7);
+  --DarkOpacity08: hwb(0 0% 100% / 0.8);
+  --DarkOpacity09: hwb(0 0% 100% / 0.9);
+
+  /* --SpaceCadet01: #191D32;
+  --SpaceCadet02: #21263B;
+  --SpaceCadet03: #252B40;
+  --SpaceCadet04: #282F44;
+  --MagentaDye: #BA2C73;
+
+  --SlateBlue01: #7C5ACB;
+  --PlumpPurple: #6F4DBE;
+  --Gunmetal: #23313C;
+  --SlateBlue02: #7B5ACB;
+  --RichBlackFOGRA29: #162029;
+  --SpaceCadet: #383A61;
+  --CaribbeanGreen: #09CA98;
+  --CadetGray: #99A7B2;
+  --GhostWhite: #FAF9FF;
+  --AmaranthPurple: #B32252;
+  --Raspberry: #DD1658; */
+  
+  /* =========== Blur =========== */
+  
+  --blur10: 10px;
+  --blur20: 20px;
+  --blur30: 30px;
+}
+
+body.light_theme {
+  /* =========== Background =========== */
+
+  --RaisinBlack01: #FFFFFF; /* White */
+  --RaisinBlack02: #ECECF0; /* White */
+  --Gunmetal: #FFFFFF; /* White */
+  --Independence: #FFFFFF; /* White */
+  
+  --RaisinBlack02Opacity: #FFFFFF00; /* White */
+  
+  /* =========== Text =========== */
+  
+  --White: #303446; /* SpaceCadet */
+  --Black: #FFFFFF; /* White */
+  --SpaceCadet: #ECECF0; /* Cultured */
+  --RomanSilver: #565A66; /* BlackCoral */
+  --Independence_Text: #B6BCC4; /* SilverSand */
+
+  /* =========== Status =========== */
+  
+  --Offline: #B6BCC4; /* SilverSand */
+  
+  /* =========== Primary =========== */
+
+  --PrimaryColor02: #FFFFFF; /* White */
+
+  /* =========== Default =========== */
+    
+  --DarkOpacity01: hwb(0 0% 100% / 0.05);
+  --DarkOpacity02: hwb(0 0% 100% / 0.1);
+  --DarkOpacity03: hwb(0 0% 100% / 0.2);
+
+  /* --DarkOpacity00: hwb(0 100% 0% / 0.05);
+  --DarkOpacity01: hwb(0 100% 0% / 0.1);
+  --DarkOpacity02: hwb(0 100% 0% / 0.2);
+  --DarkOpacity03: hwb(0 100% 0% / 0.3);
+  --DarkOpacity04: hwb(0 100% 0% / 0.4);
+  --DarkOpacity05: hwb(0 100% 0% / 0.5);
+  --DarkOpacity06: hwb(0 100% 0% / 0.6);
+  --DarkOpacity07: hwb(0 100% 0% / 0.7);
+  --DarkOpacity08: hwb(0 100% 0% / 0.8);
+  --DarkOpacity09: hwb(0 100% 0% / 0.9);
+
+  --LightOpacity00: hwb(0 0% 100% / 0.05);
+  --LightOpacity01: hwb(0 0% 100% / 0.1);
+  --LightOpacity02: hwb(0 0% 100% / 0.2);
+  --LightOpacity03: hwb(0 0% 100% / 0.3);
+  --LightOpacity04: hwb(0 0% 100% / 0.4);
+  --LightOpacity05: hwb(0 0% 100% / 0.5);
+  --LightOpacity06: hwb(0 0% 100% / 0.6);
+  --LightOpacity07: hwb(0 0% 100% / 0.7);
+  --LightOpacity08: hwb(0 0% 100% / 0.8);
+  --LightOpacity09: hwb(0 0% 100% / 0.9); */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* =========== Background =========== */
+  
+    --RaisinBlack01: #FFFFFF; /* White */
+    --RaisinBlack02: #ECECF0; /* White */
+    --Gunmetal: #FFFFFF; /* White */
+    --Independence: #FFFFFF; /* White */
+  
+    --RaisinBlack02Opacity: #FFFFFF00; /* White */
+    
+    /* =========== Text =========== */
+    
+    --White: #303446; /* SpaceCadet */
+    --Black: #FFFFFF; /* White */
+    --SpaceCadet: #ECECF0; /* Cultured */
+    --RomanSilver: #565A66; /* BlackCoral */
+    --Independence_Text: #B6BCC4; /* SilverSand */
+
+    /* =========== Status =========== */
+    
+    --Offline: #B6BCC4; /* SilverSand */
+  
+    /* =========== Primary =========== */
+  
+    --PrimaryColor02: #FFFFFF; /* White */
+  
+    /* =========== Default =========== */
+    
+    --DarkOpacity01: hwb(0 0% 100% / 0.05);
+    --DarkOpacity02: hwb(0 0% 100% / 0.1);
+    --DarkOpacity03: hwb(0 0% 100% / 0.2);
+  
+    /* --DarkOpacity00: hwb(0 100% 0% / 0.05);
+    --DarkOpacity01: hwb(0 100% 0% / 0.1);
+    --DarkOpacity02: hwb(0 100% 0% / 0.2);
+    --DarkOpacity03: hwb(0 100% 0% / 0.3);
+    --DarkOpacity04: hwb(0 100% 0% / 0.4);
+    --DarkOpacity05: hwb(0 100% 0% / 0.5);
+    --DarkOpacity06: hwb(0 100% 0% / 0.6);
+    --DarkOpacity07: hwb(0 100% 0% / 0.7);
+    --DarkOpacity08: hwb(0 100% 0% / 0.8);
+    --DarkOpacity09: hwb(0 100% 0% / 0.9);
+  
+    --LightOpacity00: hwb(0 0% 100% / 0.05);
+    --LightOpacity01: hwb(0 0% 100% / 0.1);
+    --LightOpacity02: hwb(0 0% 100% / 0.2);
+    --LightOpacity03: hwb(0 0% 100% / 0.3);
+    --LightOpacity04: hwb(0 0% 100% / 0.4);
+    --LightOpacity05: hwb(0 0% 100% / 0.5);
+    --LightOpacity06: hwb(0 0% 100% / 0.6);
+    --LightOpacity07: hwb(0 0% 100% / 0.7);
+    --LightOpacity08: hwb(0 0% 100% / 0.8);
+    --LightOpacity09: hwb(0 0% 100% / 0.9); */
+  }
+}
